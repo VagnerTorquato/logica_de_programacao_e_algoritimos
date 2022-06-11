@@ -1,11 +1,11 @@
-const frm = document.querySelector('form');
-const resp = document.querySelector('h3');
-
+const frm = document.querySelector("form");
+const resp = document.querySelector("h3");
 frm.addEventListener("submit", (e) => {
-    const quilo = Number(frm.inQuilo.value);
-    const consumo = Number(frm.inConsumo.value);
 
-    const valor = (quilo / 1000) * consumo;
-    resp.innerText = `O valor a ser pago é de R$${valor.toFixed(2)}`;
+    const valor = Number(frm.inValor.value);
+    const tempo = Number(frm.inMinutos.value);
+
+    const pagar = Math.ceil(tempo / 15) * valor;
+    resp.innerText = `Valor a Pagar R$: ${pagar.toFixed(2)}`
     e.preventDefault();
-})
+});
